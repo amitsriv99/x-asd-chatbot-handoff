@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+body {
+  font-family: "Open Sans";
+}
+.form-control:focus {
+  border-color: #cccccc !important;
+  box-shadow: none !important;
+}
+.chat-container {
+  .chat-history-div{
+    width: 100px;
+    min-width: 320px;
+    min-height: 320px;
+    height: 100px;
+    overflow: scroll;
+    padding-bottom: 50px;
+    border: 1px solid rgb(222, 222, 222);
+  }
+  .chat-button {
+    width: 100%;
+    background: #e00087;
+    top: -27px;
+    position: absolute;
+    z-index: 1;
+    .chat-icon {
+      margin-top: -4%;
+    }
+    .chat_label {
+      margin-left: 2%;
+    }
+    .msg-icon-container {
+      margin-right: 5%;
+      .message-icon {
+        margin-top: 35%;
+      }
+    }
+  }
+  .msg-box {
+    .send-icon {
+      padding: 10px;
+      background: #ccc;
+    }
+    position: absolute;
+    bottom: 0;
+    width: 99%;
+    background: #ccc;
+  }
+  .bot-Message {
+    margin-right: auto;
+    background: #ececec;
+    margin-top: 10px;
+    color: #000000;
+  }
+  .user-Message {
+    margin-left: auto;
+    background: #ececec;
+    margin-top: 10px;
+    color: #000000;
+  }
+  // .user-Message{
+  //     color: #
+  // }
+  bottom: 0;
+  right: 0px;
+  position: absolute;
+  z-index: 1;
+  color: #fff;
+}
