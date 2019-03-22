@@ -7,14 +7,21 @@ body {
   box-shadow: none !important;
 }
 .chat-container {
-  .chat-history-div{
+  bottom: 0;
+  right: 10px;
+  position: absolute;
+  z-index: 1;
+  color: #fff;
+  .chat-history-div {
     width: 100px;
     min-width: 320px;
     min-height: 320px;
     height: 100px;
-    overflow: scroll;
     padding-bottom: 50px;
     border: 1px solid rgb(222, 222, 222);
+    overflow-y: scroll;
+    padding-right: 17px;
+    box-sizing: content-box;
   }
   .chat-button {
     width: 100%;
@@ -36,14 +43,29 @@ body {
     }
   }
   .msg-box {
-    .send-icon {
-      padding: 10px;
-      background: #ccc;
-    }
     position: absolute;
     bottom: 0;
     width: 99%;
-    background: #ccc;
+    // background: #ccc;
+    .send-icon {
+      padding: 8px;
+      // background: #ccc;
+      // border: 1px solid #e00087;
+      background-color: #e00087;
+      // border-radius: 22px;
+      padding-top: 10px;
+      padding-left: 8px;
+      color: #ffffff;
+      font-size: small;
+      font-weight: bold;
+    }
+    .type-textbox{
+      box-shadow: none;
+      border-left-width: 0px;
+      border-bottom-width: 0px;
+      border-right-width: 0px;
+      border-top-width: 1px;
+    }
   }
   .bot-Message {
     margin-right: auto;
@@ -56,13 +78,12 @@ body {
     background: #ececec;
     margin-top: 10px;
     color: #000000;
+    :focus{
+      z-index: 0;
+    }
   }
   // .user-Message{
   //     color: #
   // }
-  bottom: 0;
-  right: 0px;
-  position: absolute;
-  z-index: 1;
-  color: #fff;
+
 }
