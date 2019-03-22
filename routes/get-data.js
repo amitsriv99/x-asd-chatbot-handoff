@@ -8,14 +8,14 @@ var apiai = require('apiai');
 const dialogflowId = require('../config/keys').dailogFlowID;
 const dialogflow = require('dialogflow');
 const projectId = 'asdbot-beeac';
-const jsonfile = require('C:/GsdkJson/credential.json');
+//const jsonfile = require('C:/GsdkJson/credential.json');
 const fs = require('fs')
-let jsonData = JSON.parse(fs.readFileSync('C:/GsdkJson/credential.json', 'utf-8'));
-const credentials = {
-  client_email: jsonData.client_email,
-  private_key: jsonData.private_key
-
-};
+//let jsonData = JSON.parse(fs.readFileSync('C:/GsdkJson/credential.json', 'utf-8'));
+//const credentials = {
+//  client_email: jsonData.client_email,
+//  private_key: jsonData.private_key
+//
+//};
 // const uuid = require('uuid');
 // @route Get api/replies
 //@desc get chat response
