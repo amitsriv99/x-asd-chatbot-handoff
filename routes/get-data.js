@@ -7,15 +7,15 @@ const uuid = require('uuid');
 var apiai = require('apiai');
 const dialogflowId = require('../config/keys').dailogFlowID;
 const dialogflow = require('dialogflow');
-const projectId = 'asdbot-beeac';
-//const jsonfile = require('C:/GsdkJson/credential.json');
+const projectId = '';
+// const jsonfile = require('C:/GsdkJson/credential.json');
 const fs = require('fs')
-//let jsonData = JSON.parse(fs.readFileSync('C:/GsdkJson/credential.json', 'utf-8'));
-//const credentials = {
-//  client_email: jsonData.client_email,
-//  private_key: jsonData.private_key
-//
-//};
+// let jsonData = JSON.parse(fs.readFileSync('C:/GsdkJson/credential.json', 'utf-8'));
+
+//   const credentials = {
+//   client_email: jsonData.client_email,
+//   private_key: jsonData.private_key
+// }
 // const uuid = require('uuid');
 // @route Get api/replies
 //@desc get chat response
@@ -26,23 +26,8 @@ router.get('/', (req, res) => {
 })
 
 async function postUserQuery(req, res) {
-  // const clientMessage = req.query.message;
-  // var app = apiai(dialogflowId);
 
-  // var request = app.textRequest("I have problem with printer", {
-  //   sessionId: uuid.v4()
-  // });
-
-  // request.on('response', function(response) {
-  //   console.log("bot response -- ",response.result.fulfillment.speech);
-  //   res.json(response.result.fulfillment.speech )
-  // });
-
-  // request.on('error', function(error) {
-  //   console.log(error);
-  // });
-  // request.end();
-  const sessionId = uuid.v4();
+  // const sessionId = uuid.v4();
   const queries = [
     req.query.message
   ]
@@ -53,8 +38,8 @@ async function postUserQuery(req, res) {
   }
 
   // The path to identify the agent that owns the created intent.
-  const sessionPath = sessionClient.sessionPath(projectId, sessionId);
-
+  const sessionPath = sessionClient.sessionPath(projectId, "2ba71d37-b08c-4e07-9b14-16309365d736");
+  console.log("session::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::",sessionPath);
   let promise;
 
   // Detects the intent of the queries.
@@ -74,7 +59,7 @@ async function postUserQuery(req, res) {
       // First query.
       console.log(`Sending query "${query}"`);
       promise = sessionClient.detectIntent(request);
-      console.log("promise",promise)
+      console.log("promise", promise)
     } else {
       promise = promise.then(responses => {
         console.log('Detected intent');
@@ -114,53 +99,5 @@ async function postUserQuery(req, res) {
 }
 
 
-/**
- * Send a query to the dialogflow agent, and return the query result.
-
- */
-// async function runSample() {
-// A unique identifier for the given session
-// const dialogflow = require('dialogflow');
-// const uuid = require('uuid');
-
-/**
- * Send a query to the dialogflow agent, and return the query result.
- * @param {string} projectId The project to be used
- */
-// async function runSample(projectId = 'asdbot-beeac') {
-// A unique identifier for the given session
-//   const sessionId = uuid.v4();
-
-//   // Create a new session
-//   const sessionClient = new dialogflow.SessionsClient();
-//   const sessionPath = sessionClient.sessionPath(projectId, sessionId);
-
-//   // The text query request.
-//   const request = {
-//     session: sessionPath,
-//     queryInput: {
-//       text: {
-//         // The query to send to the dialogflow agent
-//         text: 'hello',
-//         // The language used by the client (en-US)
-//         languageCode: 'en-US',
-//       },
-//     },
-//   };
-
-//   // Send request and log result
-//   const responses = await sessionClient.detectIntent(request);
-//   console.log('Detected intent');
-//   const result = responses[0].queryResult;
-//   console.log(`  Query: ${result.queryText}`);
-//   console.log(`  Response: ${result.fulfillmentText}`);
-//   if (result.intent) {
-//     console.log(`  Intent: ${result.intent.displayName}`);
-//   } else {
-//     console.log(`  No intent matched.`);
-//   }
-// }
-
-//}
 
 module.exports = router;
